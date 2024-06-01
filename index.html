@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Responsive Portfolio Landing Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <section class="banner" id="sec">
+    <header>
+      <a href="index.html" class="logo">SN.</a>
+      <div id="toggle" onclick="toggle()"></div>
+    </header>
+    <div class="content">
+      <h2>Hello World,<br>I'm <span>Nosihle Nkosi</span></h2>
+      <p><b>Welcome to my portfolio! I'm an experienced Training Officer and Promoter in the marketing and advertising industry. With a BA in Communication Science from the University of South Africa, I excel in Customer Service, Sales, Entrepreneurship, Communication, and Promotional Marketing. Explore my work and see the impact I've made.</b></p>
+      <a href="https://www.linkedin.com/in/nosihle-nkosi-8ba752174/">Know More</a>
+      <div data-share-badge-id="d4553d70-b419-468b-bc40-afd80d76de8d" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+    </div>
+    
+    <ul class="sci">
+      <li><a href="https://www.linkedin.com/in/nosihle-nkosi-8ba752174/"><img src="linkedin.png"></a></li>
+    </ul>
+  </section>
+  <div id="navigation">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+  <script type="text/javascript">
+    function toggle(){
+      var sec = document.getElementById('sec');
+      var nav = document.getElementById('navigation');
+      sec.classList.toggle('active')
+      nav.classList.toggle('active')
+    }
+  </script>
+</body>
+</html>

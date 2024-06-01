@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <section section class="banner" id="sec">
+      <header>
+        <a href="index.html" class="logo">SNM.</a>
+        <div id="toggle" onclick="toggle()"></div>
+      </header>
+        <div class="fit3">
+        <h2>Projects</h2>
+        <ul>
+          <li>
+            <h3>Data Analytics with Excel</h3>
+            <p>In our data analytics capstone project, we leveraged the power of Excel and Python to analyze a dataset and derive valuable insights. The project aimed to address a specific problem or research question by employing various data analysis techniques. While Excel served as the primary tool for data organization, visualization, and basic analysis, Python played a crucial role in unlocking additional insights through</p>
+          </li>
+          <li>
+            <h3>Email Migration</h3>
+            One of my projects involved actively participating in an email migration process. In this project, I played a key role in planning, executing, and overseeing the successful transition of email services from the existing platform to a new system.
+                <ol>
+                    <li>Firstly, I collaborated with the project team and stakeholders to understand the objectives and requirements of the migration.</li>
+                        <li>We assessed the current email environment, including the number of users, mailbox sizes, and any specific constraints or dependencies.</li>
+                        <li>Based on our evaluation, we selected a suitable target email platform that aligned with the organization's needs. We conducted extensive research and evaluated various options before finalizing the platform that best suited our requirements.</li>
+                        <li>During the data mapping and pre-migration phase, I worked closely with the technical team to define the mapping of source data to the new system. This involved mapping elements such as email accounts, folders, contacts, calendars, and other relevant data to ensure a seamless transition.</li>
+                        <li>Once the planning and mapping were complete, I actively participated in the migration execution phase. I collaborated with the technical team to configure migration tools, set up incremental sync processes, and monitor the progress of the migration. Throughout this phase, I ensured that data integrity was maintained and that any issues or challenges were promptly addressed.</li>
+                        <li> Post-migration, I led the testing and validation efforts. I worked closely with a subset of users to verify that all migrated data was intact and functional. We tested various email functionalities, contacts, calendars, and attachments to ensure a smooth user experience.</li>
+                        <li>Additionally, I played a crucial role in communicating the migration process and updates to the end users. I provided training and support to help users adapt to the new email system, and I addressed any concerns or queries they had during the transition.Overall, my involvement in the email migration project encompassed the planning, execution, and post-migration activities, ensuring a successful and seamless transition to the new email platform for the organization.</li>
+                </ol>
+          </li>
+       </div>        
+          </li>
+        </ul>
+      </section>
+      <div id="navigation">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="project.html">Project</a></li>
+            <li><a href="contacts.html">Contact</a></li>
+          </ul>
+        </div>
+      <script type="text/javascript">
+        function toggle(){
+          var sec = document.getElementById('sec');
+          var nav = document.getElementById('navigation');
+          sec.classList.toggle('active')
+          nav.classList.toggle('active')
+        }
+      </script>
+    
+</body>
+</html>
