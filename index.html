@@ -1,42 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="UTF-8">
-  <title>Responsive Portfolio Landing Page</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- Header -->
-  <section class="banner" id="sec">
-    <header>
-      <a href="index.html" class="logo">SN.</a>
-      <div id="toggle" onclick="toggle()"></div>
-    </header>
-    <div class="content">
-      <h2>Hello World,<br>I'm <span>Nosihle Nkosi</span></h2>
-      <p><b>Welcome to my portfolio! I'm an experienced Regional Training Manager in the Tech , Marketing and Advertising Industry.Hold a BA in Communication Science from the University of South Africa. Come and Explore my work and see the Impact I've made.</b></p>
-      <a href="https://www.linkedin.com/in/nosihle-nkosi-8ba752174/">Know More</a>
-      <div data-share-badge-id="d4553d70-b419-468b-bc40-afd80d76de8d" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-    </div>
-    
-    <ul class="sci">
-      <li><a href="https://www.linkedin.com/in/nosihle-nkosi-8ba752174/"><img src="linkedin.png"></a></li>
-    </ul>
-  </section>
-  <div id="navigation">
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    </div>
-  <script type="text/javascript">
-    function toggle(){
-      var sec = document.getElementById('sec');
-      var nav = document.getElementById('navigation');
-      sec.classList.toggle('active')
-      nav.classList.toggle('active')
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosihle Nkosi — Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bitcount+Single&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --gray: #a1a1aa;
+      --border: #1f1f1f;
     }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Bitcount Single", monospace;
+    }
+
+    body {
+      margin: 0;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      border-radius: 6px;
+      filter: grayscale(100%);
+    }
+
+    h1, h2, h3 {
+      letter-spacing: 0.05em;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 80px 24px;
+    }
+
+    /* ================= HERO ================= */
+    .hero {
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 60px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+    }
+
+    .hero p {
+      color: var(--gray);
+      max-width: 600px;
+      margin: 20px auto 0;
+    }
+
+    /* ================= QUALIFICATIONS ================= */
+    .qualifications {
+      margin-top: 80px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .qualifications p {
+      color: var(--gray);
+    }
+
+    .qualifications ul {
+      margin-top: 20px;
+      padding-left: 20px;
+    }
+
+    .qualifications li {
+      margin-bottom: 10px;
+    }
+
+    /* ================= TIMELINE ================= */
+    .timeline {
+      margin-top: 80px;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      width: 1px;
+      height: 100%;
+      background: var(--border);
+      transform: translateX(-50%);
+    }
+
+    .event {
+      width: 50%;
+      padding: 40px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 0.6s ease;
+      cursor: pointer;
+    }
+
+    .event.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .event.left {
+      text-align: right;
+      left: 0;
+    }
+
+    .event.right {
+      left: 50%;
+    }
+
+    .event span {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    .dot {
+      position: absolute;
+      top: 50px;
+      width: 10px;
+      height: 10px;
+      background: var(--white);
+      border-radius: 50%;
+    }
+
+    .left .dot {
+      right: -5px;
+    }
+
+    .right .dot {
+      left: -5px;
+    }
+
+    /* ================= GALLERY ================= */
+    .gallery {
+      display: none;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .event.active .gallery {
+      display: grid;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 120px;
+      padding: 40px 0;
+      text-align: center;
+      color: var(--gray);
+      font-size: 0.8rem;
+    }
+/* ================= NETWORKING ================= */
+.networking {
+  margin-top: 120px;
+  border-top: 1px solid var(--border);
+  padding-top: 60px;
+}
+
+.networking-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.network-card {
+  border: 1px solid var(--border);
+  padding: 24px;
+}
+
+.network-card h3 {
+  margin-bottom: 12px;
+}
+
+.network-card p {
+  color: var(--gray);
+  margin-bottom: 16px;
+}
+
+.network-card img {
+  margin-top: 10px;
+}
+
+    @media (max-width: 768px) {
+      .qualifications {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline::before {
+        left: 10px;
+      }
+
+      .event {
+        width: 100%;
+        padding-left: 40px;
+        text-align: left;
+        left: 0 !important;
+      }
+
+      .dot {
+        left: 6px !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Nosihle Nkosi</h1>
+      <p>
+        Regional Training Manager at HONOR, driving structured learning,
+        performance excellence, and brand growth.
+      </p>
+    </section>
+
+    <!-- QUALIFICATIONS -->
+    <section class="qualifications">
+      <img src="images/nosihle-nkosi.jpg" alt="Nosihle Nkosi">
+
+      <div>
+        <h2>About</h2>
+        <p>
+         Experienced Training Officer and Brand Promotion professional, recognized as a leader within the marketing and advertising space. Brings a strategic, people-centric approach to customer engagement, sales, communication, and promotional execution. Holds a Bachelor of Arts in Communication Science from the University of South Africa (UNISA), with a focus on Business, Family, and Consumer Sciences.
+        </p>
+
+        <ul>
+          <li>BA in Communication Science – UNISA </li>
+          <li>Data Analysis Certificate -University of Cape Town (UCT) -2025</li>
+          <li>Proven regional leadership across multiple provinces</li>
+          <li>Expertise in training design, facilitation, and performance tracking</li>
+          <li>Strong alignment between brand strategy and people development</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="timeline">
+
+      <div class="event left">
+        <div class="dot"></div>
+        <h3>Regional Training Manager — HONOR</h3>
+        <span>Mar 2024 – Present</span>
+
+        <div class="gallery">
+          <img src="images/honor-1.jpg">
+          <img src="images/training2.jpg">
+          <img src="images/networking1.jpg">
+        </div>
+      </div>
+
+      <div class="event right">
+        <div class="dot"></div>
+        <h3>Senior Training Specialist — Pioneer Pulse</h3>
+        <span>Jun 2022 – Jan 2024</span>
+
+        <div class="gallery">
+          <img src="images/smollan.jpg">
+          <img src="images/smollan2.jpg">
+        </div>
+      </div>
+
+      <div class="event left">
+        <div class="dot"></div>
+        <h3>Brand Ambassador — Samsung Mobile</h3>
+        <span>Jan 2021 – Mar 2024</span>
+
+        <div class="gallery">
+          <img src="images/samsung1.jpg">
+          <img src="images/samsung.jpg">
+        </div>
+      </div>
+
+    </section>
+<section class="networking">
+  <h2>Networking & Professional Presence</h2>
+
+  <div class="networking-grid">
+
+    <div class="network-card">
+      <h3>Industry Events</h3>
+      <p>
+        Active participation in product launches, leadership forums,
+        and brand-driven industry engagements.
+      </p>
+      <img src="images/event.jpg" alt="Industry Event">
+    </div>
+
+    <div class="network-card">
+      <h3>Training Sessions</h3>
+      <p>
+        Facilitation of structured regional training sessions,
+        sales enablement programs, and performance workshops.
+      </p>
+      <img src="images/training1.jpg" alt="Training Session">
+    </div>
+
+    <div class="network-card">
+      <h3>Brand Representation</h3>
+      <p>
+        Executive-level brand presence across retail, enterprise,
+        and B2B environments, ensuring consistency and credibility.
+      </p>
+      <img src="images/event4.jpg" alt="Brand Representation">
+    </div>
+
+  </div>
+</section>
+
+    <footer>
+      © 2026 Nosihle Nkosi — Black & White Portfolio
+    </footer>
+
+  </div>
+
+  <script>
+    const events = document.querySelectorAll('.event');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.3 });
+
+    events.forEach(event => observer.observe(event));
+
+    events.forEach(event => {
+      event.addEventListener('click', () => {
+        event.classList.toggle('active');
+      });
+    });
   </script>
+
 </body>
 </html>
