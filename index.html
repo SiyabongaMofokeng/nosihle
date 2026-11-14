@@ -13,6 +13,7 @@
       --white: #ffffff;
       --gray: #a1a1aa;
       --border: #1f1f1f;
+      --vodacom-red: #e60000;
     }
 
     * {
@@ -147,6 +148,58 @@
       left: -5px;
     }
 
+    /* ================= VODACOM ROLE (red accent) ================= */
+    .event.vodacom h3 {
+      color: var(--vodacom-red);
+    }
+
+    .event.vodacom span {
+      color: var(--vodacom-red);
+      opacity: 0.8;
+    }
+
+    .event.vodacom .dot {
+      width: 14px;
+      height: 14px;
+      top: 48px;
+      background: var(--vodacom-red);
+      box-shadow: 0 0 14px 3px rgba(230, 0, 0, 0.6);
+    }
+
+    .event.vodacom.right .dot {
+      left: -7px;
+    }
+
+    .event.vodacom.left .dot {
+      right: -7px;
+    }
+
+    /* red transition line leading into the Vodacom role */
+    .event.vodacom::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      width: 1px;
+      height: 70px;
+      background: linear-gradient(to bottom, var(--border), var(--vodacom-red));
+    }
+
+    .event.vodacom.right::before {
+      left: 0;
+    }
+
+    .event.vodacom.left::before {
+      right: 0;
+    }
+
+    .event.vodacom .gallery img {
+      border: 1px solid var(--vodacom-red);
+    }
+
+    .event.vodacom:hover h3 {
+      text-shadow: 0 0 12px rgba(230, 0, 0, 0.55);
+    }
+
     /* ================= GALLERY ================= */
     .gallery {
       display: none;
@@ -218,6 +271,15 @@
       .dot {
         left: 6px !important;
       }
+
+      .event.vodacom .dot {
+        left: 4px !important;
+      }
+
+      .event.vodacom::before {
+        left: 10px !important;
+        right: auto !important;
+      }
     }
   </style>
 </head>
@@ -258,7 +320,19 @@
     <!-- TIMELINE -->
     <section class="timeline">
 
-      <div class="event left">
+      <!-- NEWEST ROLE: Vodacom (red accent) -->
+      <div class="event left vodacom">
+        <div class="dot"></div>
+        <h3>Brand Channel Specialist — Vodacom</h3>
+        <span>Start Sep 2026 </span>
+
+        <div class="gallery">
+          <img src="vodacom1.jpg" alt="Vodacom">
+          <img src="vodacom2.jpg" alt="Vodacom">
+        </div>
+      </div>
+
+      <div class="event right">
         <div class="dot"></div>
         <h3>Regional Training Manager — HONOR</h3>
         <span>Mar 2024 – Present</span>
@@ -270,7 +344,7 @@
         </div>
       </div>
 
-      <div class="event right">
+      <div class="event left">
         <div class="dot"></div>
         <h3>Senior Training Specialist — Pioneer Pulse</h3>
         <span>Jun 2022 – Jan 2024</span>
@@ -281,7 +355,7 @@
         </div>
       </div>
 
-      <div class="event left">
+      <div class="event right">
         <div class="dot"></div>
         <h3>Brand Ambassador — Samsung Mobile</h3>
         <span>Jan 2021 – Mar 2024</span>
@@ -353,4 +427,3 @@
 
 </body>
 </html>
-
